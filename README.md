@@ -118,12 +118,17 @@ Exit the REPL:
 **Question 1.1:** In the REPL, typing `2 ** 10` without `print` still shows
 `1024`. Why does this work in the REPL but *not* in a script file?
 
-> *Your answer:*
+> *Your answer:*In the REPL, Python automatically shows the result of any expression you type.
+In a script, Python does not show results unless you use print().
 
 **Question 1.2:** The f-string format specifier `:.2f` controls how `price`
 is displayed. What does it mean, and what would `:.4f` produce for `18.9`?
 
-> *Your answer:*
+> *Your answer:*The format specifier :.2f means show the number with 2 digits after the decimal point
+So 18.9 becomes 18.90.
+
+:.4f means show 4 digits after the decimal point.
+So 18.9 would be displayed as 18.9000.
 
 ---
 
