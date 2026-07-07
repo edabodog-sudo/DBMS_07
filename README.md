@@ -172,13 +172,19 @@ Exit the REPL:
 can write `sqrt(144)` without the `math.` prefix. What is the drawback of
 this style compared to `import math`?
 
-> *Your answer:*
+> *Your answer:*Using from math import sqrt lets you write sqrt(144) directly, but it can cause name conflicts.
+If your code or another module also defines a function called sqrt, Python might get confused.
+With import math, you always use math.sqrt(144), which makes it clear that the function comes from the math module.
 
 **Question 2.2:** The standard library is always available — it requires no
 installation. Name two other standard library modules (not `math`) and
 describe in one sentence what each one is used for.
 
-> *Your answer:*
+> *Your answer:*Two examples of standard library modules are:
+
+random — used to generate random numbers, pick random items, or shuffle lists.
+
+datetime — used to work with dates and times (today’s date, timestamps, time differences).
 
 ---
 
