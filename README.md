@@ -128,7 +128,7 @@ is displayed. What does it mean, and what would `:.4f` produce for `18.9`?
 So 18.9 becomes 18.90.
 
 :.4f means show 4 digits after the decimal point.
-So 18.9 would be displayed as 18.9000.
+So 18.9 would be displayed as 18.9000. 
 
 ---
 
