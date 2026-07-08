@@ -524,13 +524,24 @@ git push
 `uv.lock` be committed to version control while generated files like `.venv/`
 should not?
 
-> *Your answer:*
+> *Your answer:*The two files have different purposes in a Python project.
+
+pyproject.toml  
+This file describes the project. It lists the dependencies you want to use (for example, rich). It shows your intended requirements, but not the exact versions.
+uv.lock  
+This file records the exact versions of all dependencies that were installed. It includes every package and its sub‑dependencies. This makes the environment reproducible, so other people can install exactly the same versions on their computers.
+Why commit uv.lock?  
+Because it ensures that everyone working on the project uses the same dependency versions. This avoids unexpected differences between machines.
+Why not commit .venv/?  
+The .venv/ folder contains local binary files that depend on your computer. It is large, machine‑specific, and can always be recreated using uv sync. Therefore, it should not be stored in version control.
+
 
 **Question 4.2:** `uv run python3 berechnung.py` uses the virtual
 environment's Python. What would happen if you ran `python3 berechnung.py`
 directly (without `uv run`) and `rich` is not installed system-wide?
 
-> *Your answer:*
+> *Your answer:*uv run → uses the virtual environment → rich is available → the script works.
+python3 berechnung.py → uses system Python → rich is missing → the script fails.
 
 ---
 
