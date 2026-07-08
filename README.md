@@ -262,13 +262,16 @@ it only under `if __name__ == "__main__"`. What is `__name__` set to when the
 file is run directly? What is it set to when the file is *imported* by another
 module — and why does this distinction matter?
 
-> *Your answer:*
+> *Your answer:*When the file is run directly, __name__ is "__main__".
+When the file is imported, __name__ becomes the module’s name (for example "berechnung").
+This matters because it prevents the script’s main code from running automatically when the file is imported. Only direct execution should trigger main().
 
 **Question 3.2:** The `kreisflaeche` function could be defined without
 importing `math` by hard-coding `3.14159` instead of `math.pi`. Give one
 concrete reason why using `math.pi` is preferable.
 
-> *Your answer:*
+> *Your answer:*Using math.pi is better because it gives the exact, built‑in value of π, which is more accurate than a hard‑coded number like 3.14159.
+It also makes your code clearer and avoids mistakes if you ever need higher precision.
 
 ---
 
