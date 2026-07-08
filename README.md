@@ -803,12 +803,14 @@ git push
 automatically. What standard does it use to describe the API, and what
 advantage does machine-readable API documentation have over a PDF?
 
-> *Your answer:*
+> *Your answer:*FastAPI uses the OpenAPI standard to describe the API.
+Machine‑readable documentation (like OpenAPI/JSON) is better than a PDF because tools can automatically generate clients, tests, SDKs, and interactive UIs from it. A PDF can only be read by humans, but machine‑readable docs can be used directly by programs, making integration faster, safer, and less error‑prone.
 
 **Question 6.2:** The `--reload` flag is useful during development but should
 not be used in production. Why?
 
-> *Your answer:*
+> *Your answer:*the --reload is unsafe in production because it uses the development server, which automatically restarts the app whenever files change. This hot‑reloading mechanism is slow, unstable, single‑process, and can accidentally restart your app during traffic.
+In production you need a robust, multi‑worker server like Uvicorn + Gunicorn or Uvicorn behind Nginx, which handles concurrency, load, and crashes safely.
 
 ---
 
