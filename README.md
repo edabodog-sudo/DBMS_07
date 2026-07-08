@@ -987,21 +987,35 @@ git push
 What would be the security risk of building the SQL string by concatenation
 (`"VALUES ('" + mitglied.nachname + "'...)`)? Name the attack this prevents.
 
-> *Your answer:*
+> *Your answer:*Building SQL by string concatenation is dangerous because user‑provided text can break out of the query and inject malicious SQL. This can let an attacker read, modify, or delete data.Parameterized queries prevent SQL injection, the attack you’re protecting against.
+So:
+Concatenation → unsafe, attacker can inject SQL
+Parameterized queries → safe, database treats values as data, not code
+Parameterized queries prevent SQL injection, the attack you’re protecting against.
 
 **Question 7.2:** The `RealDictCursor` in endpoints 1 and 2 returns each row
 as a dictionary instead of a tuple. Why does this make the API response more
 useful to a client that receives the JSON output?
 
-> *Your answer:*
+> *Your answer:*Returning rows as dictionaries makes the JSON output much more useful because JSON itself is a key–value format. When each row already has named columns, the client receives meaningful 
 
 **Question 7.3:** A caller of `GET /ausleihen/offen` receives a list of open
 loans without knowing anything about the underlying table structure, join logic,
 or database credentials. Name two concrete advantages this abstraction provides
 compared to giving every caller direct database access.
 
-> *Your answer:*
+> *Your answer:*Two big advantages of giving clients an API endpoint instead of direct database access are:
 
+1. Security & Access Control
+Clients never see the database, its tables, or its credentials.
+The API can enforce authentication, rate limits, validation, and permissions.
+Direct DB access would expose your schema and allow accidental or malicious damage.
+
+2. Stable, simple interface
+Clients receive clean JSON shaped exactly for their needs, without caring about joins, table names, or SQL.
+If the database schema changes, you can update the API internally without breaking clients.
+
+So the API provides safety and abstraction, while direct DB access would be fragile and dangerous.
 ---
 
 ## 8 – Reflection and Outlook
@@ -1020,7 +1034,9 @@ the query. In a production system with hundreds of simultaneous requests this
 would be inefficient. What is the standard solution, and which Python library
 provides it for `psycopg2`?
 
-> *Your answer:*
+> *Your answer:*The principle is separation of concerns — each part of the system should focus on one responsibility and hide its internal complexity behind a clean interface.
+
+In your case, the API hides SQL, joins, and database structure behind a simple URL. The frontend only cares about “give me open loans”, not how the data is produced.
 
 **Question C – Authentication:**  
 The API currently has no access control — anyone who can reach the server on
@@ -1029,7 +1045,8 @@ to a FastAPI application are **JWT tokens** (stateless, validated by the API
 itself) and **Keycloak** (external identity provider, acting as middleware).
 What is the main operational difference between the two approaches?
 
-> *Your answer:*
+> *Your answer:*JWT = self‑contained authentication inside your app.
+Keycloak = external authentication service that your app delegates to.
 
 **Question D – The abstraction chain:**  
 You have now built a complete chain: raw data in PostgreSQL → SQL query in
@@ -1037,7 +1054,11 @@ Python → JSON response from FastAPI → curl client. Describe in two sentences
 what each link in this chain contributes and why removing any one of them
 would make the system harder to use or maintain.
 
-> *Your answer:*
+> *Your answer:***Question D – The abstraction chain:**  
+You have now built a complete chain: raw data in PostgreSQL → SQL query in
+Python → JSON response from FastAPI → curl client. Describe in two sentences
+what each link in this chain contributes and why removing any one of them
+would make the system harder to use or maintain.
 
 ---
 
