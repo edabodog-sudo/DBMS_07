@@ -673,20 +673,25 @@ git push
 query. What is the role of a cursor in the database connection model?
 Why is one connection able to hold multiple cursors simultaneously?
 
-> *Your answer:*
+> *Your answer:*A cursor is the object that sends SQL commands through a database connection and retrieves the results. It manages the state of a query (execution, fetching rows, errors).
+A single connection can hold multiple cursors because the connection is just the communication channel to the database, while each cursor is an independent “work session” inside that channel. Each cursor can run its own query and keep its own position in the result set without interfering with others.
+
+
 
 **Question 5.2:** The connection parameters (username, password, host) are
 written directly in the script as `DB_CONFIG`. Why is this a security problem
 in a real project? Name one common alternative for storing credentials outside
 the source code.
 
-> *Your answer:*
+> *Your answer:*Hard‑coding credentials in the source code is a security risk because anyone who gets access to the repository (GitHub, backups, logs, coworkers, attackers) automatically gets your username, password, and host. This can expose your entire database.
+A common safe alternative is to store credentials in environment variables (e.g., .env file loaded with python-dotenv). Other options include a configuration file outside version control, a secret manager (AWS Secrets Manager, HashiCorp Vault), or Docker secrets.
 
 **Question 5.3:** `cursor.fetchall()` returns a list of tuples. The script
 accesses `row[0]`, `row[1]`, etc. by index. What is the risk of this approach,
 and which `psycopg2` cursor subclass would return named columns instead?
 
-> *Your answer:*
+> *Your answer:*Using row[0], row[1], etc. is risky because the code breaks if the SQL query changes its column order or if someone adds/removes a column. Your logic becomes fragile and hard to maintain.
+The safer alternative is to use the RealDictCursor subclass from psycopg2.extras, which returns rows as dictionaries:
 
 ---
 
