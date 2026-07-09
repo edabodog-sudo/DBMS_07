@@ -58,7 +58,9 @@ pg_isready
 
 > **Screenshot 1:** Take a screenshot showing all three version/status checks.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="151" height="115" alt="Screenshot 2a" src="https://github.com/user-attachments/assets/a256dea0-df07-4773-877d-238c5f9063f6" />
+
+
 
 ---
 
@@ -111,7 +113,9 @@ Exit the REPL:
 > **Screenshot 2:** Take a screenshot showing all REPL interactions above,
 > including the f-string output.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="151" height="115" alt="Screenshot 2a" src="https://github.com/user-attachments/assets/ed7705a4-6b76-4e3f-9575-9acbb8513ad8" />
+
+<img width="310" height="53" alt="Screenshot 2b" src="https://github.com/user-attachments/assets/68473574-d306-4c17-8cbf-40b90767a20b" />
 
 ### Questions for Section 1
 
@@ -245,7 +249,8 @@ python3 berechnung.py
 > **Screenshot 3:** Take a screenshot showing the terminal output of
 > `python3 berechnung.py`.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="310" height="68" alt="Screenshot 3" src="https://github.com/user-attachments/assets/3ca609fc-e201-4760-bd9d-5f04313ce537" />
+
 
 ### Step 4 – Commit
 
@@ -431,7 +436,8 @@ uv --version
 
 > **Screenshot 4:** Take a screenshot showing the `uv --version` output.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="316" height="56" alt="Screenshot 4" src="https://github.com/user-attachments/assets/77526448-697a-485c-b6cc-7aa2508c8900" />
+
 
 ---
 
@@ -507,7 +513,8 @@ uv run python3 berechnung.py
 > **Screenshot 5:** Take a screenshot showing the colourful table output
 > from `uv run`.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="347" height="83" alt="Screenshot 5" src="https://github.com/user-attachments/assets/44d57edc-bf20-4e18-bb4b-316f007de9c7" />
+
 
 ### Step 5 – Commit
 
@@ -657,7 +664,8 @@ uv run python3 abfrage.py
 
 > **Screenshot 6:** Take a screenshot showing the query result table.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="403" height="86" alt="Screenshot 6" src="https://github.com/user-attachments/assets/6018826d-adc8-4d99-932c-c1e558f44810" />
+
 
 ### Step 4 – Commit
 
@@ -785,7 +793,9 @@ from your code.
 > **Screenshot 7:** Take a screenshot showing the `curl` response and the
 > uvicorn startup log in the other terminal.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="476" height="83" alt="Screenshot 7a" src="https://github.com/user-attachments/assets/f21f3da9-fc43-4173-a36d-3f33ea06be9b" /><img width="391" height="23" alt="Screenshot 7b" src="https://github.com/user-attachments/assets/7511c29e-2199-4d0b-ad9a-5e3e5de32477" />
+
+
 
 ### Step 4 – Commit
 
@@ -970,7 +980,8 @@ Try posting the same e-mail a second time and observe the 409 error response.
 > **Screenshot 8:** Take a screenshot showing the curl output for all three
 > endpoints, including the 409 error on the duplicate POST.
 >
-> `[insert screenshot]`
+> `[insert screenshot]`<img width="607" height="23" alt="Screenshot 8" src="https://github.com/user-attachments/assets/798dd3b3-505b-449d-9b2d-012372523519" />
+
 
 ### Step 4 – Commit
 
